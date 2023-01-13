@@ -1,0 +1,30 @@
+table{
+    border: 2px indianred solid;
+    border-collapse: collapse;
+    background-color: blanchedalmond;
+    width: 100%;
+}
+table input{
+    width: 80%;
+
+}
+td{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid indianred;
+}
+thead{
+    font-weight: 600;
+}
+tbody tr:nth-child(odd) {
+    background-color:azure;
+}
+#app{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+input[type="text"],button{
+    margin-left: 10px;
+    margin-right: 10px;
+}
