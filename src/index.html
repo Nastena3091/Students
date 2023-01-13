@@ -11,65 +11,6 @@
 	<script src="main.js" defer></script>
 </head>
 <body>
-    <div id="app">
-		<!-- <input type="text" name="search" value="" v-model="search"><br>
-		<table class="table table-dark">
-			<tr v-for="item in students"  v-bind:key="item.id"> 
-				<td>{{item.pib}}</td><td><input type="checkbox" v-model="item.zdav"></td><td>{{item.group}}</td><td><a href = "#" @click="deleteStudent(item.id)">Видалити</a></td>
-			</tr>
-		</table>
-
-			<input v-model="student.pib">
-			<input type="checkbox" v-model="student.zdav">
-			<select v-model="student.group">
-				<option value="RPZ 19 1/9">RPZ 19 1/9</option>
-				<option value="RPZ 19 2/9">RPZ 19 2/9</option>
-			</select>
-			<button @click="addStudent()">Add student</button> -->
-			<div class="addStud">
-				<input type="text" placeholder="ПІБ" v-model="student.name">
-				<select id="select" v-model="student.group">
-					<option value="default" selected disabled>Група</option>
-					<option value="RPZ 19 1/9">RPZ 19 1/9</option>
-					<option value="RPZ 19 2/9">RPZ 19 2/9</option>
-				</select>
-				<input type="text" placeholder="Оцінка" v-model="student.mark">
-				<input type="checkbox" name="" id="" v-model="student.isDonePr">Наявність роботи
-				<pre></pre>
-				<button @click="addStudent">Додати студента</button>
-			</div>
-				
-				<pre></pre>
-				<input type="text" @input="searchStudent" v-model="search" placeholder="Пошук">
-				<pre></pre>
-				<table>
-					<thead>
-						<tr>
-							<td>ПІБ</td>
-							<td>Група</td>
-							<td>Оцінка</td>
-							<td>Наявність роботи</td>
-							<td colspan="2">Дії</td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr v-for="st in searchedStudents">
-							<td><input type="text" :value="st.name" @input="st.name=$event.target.value"></td>
-							<td>
-								<select id="select" v-model="st.group">
-									<option value="RPZ 19 1/9">RPZ 19 1/9</option>
-									<option value="RPZ 19 2/9">RPZ 19 2/9</option>
-								</select>
-							</td>
-							<td><input type="text" :value="st.mark" @input="st.mark=$event.target.value"></td>
-							<td><input type="checkbox" v-model="st.isDonePr"></td>
-							<td><a @click="deleteStudent(st._id)">Видалити</a></td>
-							<td><a @click="updateStudent(st)">Змінити</a></td>
-						</tr>
-					</tbody>
-				</table>
-	</div>
-
-
+	<div id="app"></div>
 </body>
 </html>
