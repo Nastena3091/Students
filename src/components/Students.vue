@@ -1,5 +1,6 @@
 <template>
         <div id="app">
+            <p>Кількість студентів: {{ studentsCount }}</p>
 		<div class="addStud">
 			<input type="text" placeholder="ПІБ" v-model="student.name">
 			<select id="select" v-model="student.group">
@@ -24,7 +25,7 @@
 					<td colspan="2">Дії</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody :class="theme">
 				<tr v-for="st in searchedStudents" :key="st._id">
 					<td><router-link :to="'/student-info/'+st._id" v-if="update!=st._id">{{st.name}}</router-link><input type="text" :value="st.name" @input="st.name=$event.target.value" v-else></td>
 					<td><span v-if="update!=st._id">{{st.group}}</span>
@@ -63,7 +64,7 @@
                 console.log(response.data);
                 this.students = response.data;
                 this.searchedStudents=response.data;
-                
+                this.$store.commit('setCount', this.students.length);
             })
             
         },
@@ -119,14 +120,28 @@
                 this.update='';
             }
         },
+        computed: {
+            studentsCount () {
+                return this.$store.getters.getCount
+            },
+            theme(){
+                return this.$store.getters.getTheme
+            }
+        },
     }
 </script>
 
 <style scoped>
+    a{
+        text-decoration: none;
+    }
+    .dark a{
+        color:aliceblue;
+    }
     table{
-        border: 2px indianred solid;
+        
         border-collapse: collapse;
-        background-color: blanchedalmond;
+        
         width: 100%;
     }
     table input{
@@ -141,8 +156,18 @@
     thead{
         font-weight: 600;
     }
-    tbody tr:nth-child(odd) {
+    .dark table{
+        background-color: cadetblue;
+    }
+    .light table{
+        background-color: blanchedalmond;
+        border: 2px indianred solid;
+    }
+    .light tbody tr:nth-child(odd) {
         background-color:azure;
+    }
+    .dark tbody tr:nth-child(odd) {
+        background-color:darkslategray;
     }
     #app{
         width: 70%;
