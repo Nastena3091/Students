@@ -19,7 +19,6 @@
 
 <script>
     import Modal from "./modal/Modal.vue";
-    import axios from 'axios';
     import { ref } from "vue";
 
     export default {
@@ -38,7 +37,7 @@
            };
        },
        mounted(){
-        axios.get(`http://34.82.81.113:3000/students/${this.id}`).then((res) => {
+        this.axios.get(`http://34.82.81.113:3000/students/${this.id}`).then((res) => {
             this.student = res.data;
             console.log(res.data)
             this.$store.commit('setCount', this.students.length);

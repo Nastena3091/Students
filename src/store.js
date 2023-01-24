@@ -5,7 +5,8 @@ const store = createStore({
     plugins: [createPersistedState()],
     state: {
         count: 0,
-        theme: 'light'
+        theme: 'light',
+        user: null,
      },
      mutations: {
          setCount: (state, count) => state.count = count,
@@ -16,6 +17,7 @@ const store = createStore({
             state.theme ='light'
          }
         },
+        setUser: (state, user) => (state.user = user)
      },
      getters: {
          getCount: (state) =>
@@ -25,6 +27,10 @@ const store = createStore({
          getTheme: (state) =>
          {
             return state.theme
+         },
+         getUser: (state) =>
+         {
+            return state.user
          }
      }  
  })
